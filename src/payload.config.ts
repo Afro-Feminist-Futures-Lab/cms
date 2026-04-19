@@ -1,4 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { resendAdapter } from '@payloadcms/email-resend'
 import sharp from 'sharp'
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
@@ -18,7 +19,19 @@ import { getServerSideURL } from './utilities/getURL'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const resendApiKey = process.env.RESEND_API_KEY
+
 export default buildConfig({
+  ...(resendApiKey
+    ? {
+        email: resendAdapter({
+          apiKey: resendApiKey,
+          defaultFromAddress:
+            process.env.RESEND_FROM_ADDRESS || 'info@afrofeministfutureslab.com',
+          defaultFromName: process.env.RESEND_FROM_NAME || 'Afro-Feminist Futures Lab',
+        }),
+      }
+    : {}),
   admin: {
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.

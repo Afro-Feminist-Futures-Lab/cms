@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+
+:root {
+  --affl-peach: #ffe4d4;
+  --affl-terracotta: #BE6651;
+  --affl-terracotta-deep: #6e4538;
+  --affl-body: #3f302b;
+  --affl-muted: #5c4540;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-corben);
+}
+
+body {
+  font-family: var(--font-roboto);
+  background-color: var(--affl-peach);
+  color: var(--affl-body);
+}
+
+article[data-landing='true'].affl-landing {
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  background: var(--affl-peach);
+  color: var(--affl-body);
+}
+
+article[data-landing='true'] .affl-landing-hero {
+  position: relative;
+}
+
+article[data-landing='true'] .affl-landing-chrome {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 30;
+  pointer-events: none;
+}
+
+article[data-landing='true'] .affl-landing-chrome-inner {
+  pointer-events: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  max-width: 86rem;
+  margin-inline: auto;
+}
+
+article[data-landing='true'] .affl-landing-badge {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  color: #2f1a12;
+  background: linear-gradient(145deg, #f9cf44, #f59b27);
+  border: 4px solid rgba(245, 244, 239, 0.35);
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
+article[data-landing='true'] .affl-landing-menu {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #f0ddd2;
+  padding: 0.35rem;
+  cursor: pointer;
+  line-height: 0;
+}
+
+article[data-landing='true'] .affl-landing-menu-bars,
+article[data-landing='true'] .affl-landing-menu-bars::before,
+article[data-landing='true'] .affl-landing-menu-bars::after {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  position: relative;
+}
+
+article[data-landing='true'] .affl-landing-menu-bars::before,
+article[data-landing='true'] .affl-landing-menu-bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+article[data-landing='true'] .affl-landing-menu-bars::before {
+  top: -6px;
+}
+
+article[data-landing='true'] .affl-landing-menu-bars::after {
+  top: 6px;
+}
+
+/* Full-bleed hero (high impact): grayscale photography + readability */
+article[data-landing='true'] .affl-landing-hero [data-theme='dark'] img {
+  filter: grayscale(1) contrast(1.06);
+}
+
+article[data-landing='true'] .affl-landing-hero [data-theme='dark']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 42%),
+    radial-gradient(circle at 50% 18%, rgba(0, 0, 0, 0.35), transparent 38%);
+  z-index: 1;
+}
+
+article[data-landing='true'] .affl-landing-hero {
+  margin-bottom: 0 !important;
+}
+
+article[data-landing='true'] .affl-landing-hero [data-theme='dark'] > .container {
+  position: relative;
+  z-index: 10;
+}
+
+article[data-landing='true'] .affl-landing-hero [data-theme='dark'] .payload-richtext h1,
+article[data-landing='true'] .affl-landing-hero [data-theme='dark'] .payload-richtext h2 {
+  font-weight: 400;
+  color: #BE6651;
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+  width: fit-content;
+}
+
+article[data-landing='true'] .affl-landing-hero [data-theme='dark'] .payload-richtext p,
+article[data-landing='true'] .affl-landing-hero [data-theme='dark'] .payload-richtext li {
+  color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-roboto);
+  }
+
+article[data-landing='true'] .affl-landing-hero [data-theme='dark'] .payload-richtext a {
+  color: #f5d4c4;
+}
+
+/* CMS block sections */
+article[data-landing='true'] > div.my-16 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0.75rem 0;
+  background: var(--affl-peach);
+}
+
+article[data-landing='true'] > div.my-16 .container {
+  max-width: 68rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+article[data-landing='true'] > div.my-16 .payload-richtext h1,
+article[data-landing='true'] > div.my-16 .payload-richtext h2,
+article[data-landing='true'] > div.my-16 .payload-richtext h3 {
+  font-family: var(--font-corben);
+  color: var(--affl-terracotta);
+  text-align: center;
+  font-weight: 400;
+  margin: 0;
+}
+
+article[data-landing='true'] > div.my-16 .payload-richtext p,
+article[data-landing='true'] > div.my-16 .payload-richtext li {
+  color: var(--affl-body);
+  text-align: justify;
+  hyphens: auto;
+  margin: 0;
+}
+
+article[data-landing='true'] > div.my-16 .payload-richtext a {
+  color: var(--affl-terracotta-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Call to action / “Big news” style cards */
+article[data-landing='true'] .rounded.border-border.border {
+  background: rgba(255, 255, 255, 0.45);
+  border-color: #cfad95 !important;
+  border-radius: 0.75rem;
+  box-shadow: none;
+}
+
+article[data-landing='true'] .rounded.border-border.border .payload-richtext h2,
+article[data-landing='true'] .rounded.border-border.border .payload-richtext h3 {
+  font-family: var(--font-corben);
+  color: var(--affl-terracotta);
+}
+
+/* Values block */
+article[data-landing='true'] .affl-values-block-title {
+  margin: 0 0 1.75rem;
+  font-family: var(--font-corben), 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 400;
+  color: var(--affl-terracotta);
+}
+
+article[data-landing='true'] .affl-values-block-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  article[data-landing='true'] .affl-values-block-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+article[data-landing='true'] .affl-values-block-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid #cfad95;
+  border-radius: 0.7rem;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+article[data-landing='true'] .affl-values-block-icon {
+  flex-shrink: 0;
+  flex-basis: 25%;
+  align-self: center;
+}
+
+article[data-landing='true'] .affl-values-block-item-title {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-corben), 'DM Serif Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--affl-terracotta);
+}
+
+article[data-landing='true'] .affl-values-block-item-desc {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--affl-body);
+  font-size: 0.95rem;
+}

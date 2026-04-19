@@ -20,6 +20,7 @@ import type {
 } from '@/payload-types'
 import { BannerBlock } from '@/blocks/Banner/Component'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
+import { LANDING_PAGE_SLUG } from '@/constants/landingPage'
 import { cn } from '@/utilities/ui'
 
 type NodeTypes =
@@ -32,7 +33,13 @@ const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
     throw new Error('Expected value to be an object')
   }
   const slug = value.slug
-  return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
+  if (relationTo === 'posts') {
+    return `/posts/${slug}`
+  }
+  if (slug === LANDING_PAGE_SLUG) {
+    return '/'
+  }
+  return `/${slug}`
 }
 
 const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({

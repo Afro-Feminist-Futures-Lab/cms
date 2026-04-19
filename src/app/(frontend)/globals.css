@@ -19,6 +19,7 @@
   h6 {
     font-weight: unset;
     font-size: unset;
+    font-family: var(--font-corben);
   }
 }
 
@@ -216,9 +217,11 @@
 
 html {
   opacity: 0;
+  font-family: var(--font-roboto);
 }
 
 html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
+  font-family: var(--font-roboto);
 }

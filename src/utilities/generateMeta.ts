@@ -21,14 +21,22 @@ const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
 
 export const generateMeta = async (args: {
   doc: Partial<Page> | Partial<Post> | null
+  /** Absolute path for Open Graph URL, e.g. `/` for the landing page. */
+  canonicalPath?: string
 }): Promise<Metadata> => {
-  const { doc } = args
+  const { doc, canonicalPath } = args
 
   const ogImage = getImageURL(doc?.meta?.image)
 
   const title = doc?.meta?.title
-    ? doc?.meta?.title + ' | Payload Website Template'
-    : 'Payload Website Template'
+    ? doc?.meta?.title + ' | AFFL Admin Dashboard'
+    : 'AFFL Admin Dashboard'
+
+  const ogUrl = canonicalPath
+    ? `${getServerSideURL()}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`
+    : doc?.slug && typeof doc.slug === 'string'
+      ? `${getServerSideURL()}/${doc.slug}`
+      : getServerSideURL()
 
   return {
     description: doc?.meta?.description,
@@ -42,7 +50,7 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url: ogUrl,
     }),
     title,
   }

@@ -1,3 +1,4 @@
+import { LANDING_PAGE_SLUG } from '@/constants/landingPage'
 import { PayloadRequest, CollectionSlug } from 'payload'
 
 const collectionPrefixMap: Partial<Record<CollectionSlug, string>> = {
@@ -20,10 +21,15 @@ export const generatePreviewPath = ({ collection, slug }: Props) => {
   // Encode to support slugs with special characters
   const encodedSlug = encodeURIComponent(slug)
 
+  const previewPath =
+    collection === 'pages' && slug === LANDING_PAGE_SLUG
+      ? '/'
+      : `${collectionPrefixMap[collection]}/${encodedSlug}`
+
   const encodedParams = new URLSearchParams({
     slug: encodedSlug,
     collection,
-    path: `${collectionPrefixMap[collection]}/${encodedSlug}`,
+    path: previewPath,
     previewSecret: process.env.PREVIEW_SECRET || '',
   })
 

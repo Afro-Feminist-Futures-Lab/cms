@@ -11,6 +11,7 @@ import { searchFields } from '@/search/fieldOverrides'
 import { beforeSyncWithSearch } from '@/search/beforeSync'
 
 import { Page, Post } from '@/payload-types'
+import { LANDING_PAGE_SLUG } from '@/constants/landingPage'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
@@ -19,6 +20,10 @@ const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
   const url = getServerSideURL()
+
+  if (doc?.slug === LANDING_PAGE_SLUG) {
+    return `${url}/`
+  }
 
   return doc?.slug ? `${url}/${doc.slug}` : url
 }

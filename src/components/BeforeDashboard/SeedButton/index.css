@@ -4,9 +4,9 @@
   border: none;
   padding: 0;
   text-decoration: underline;
+}
 
-  &:hover {
-    cursor: pointer;
-    opacity: 0.85;
-  }
+.seedButton:hover {
+  cursor: pointer;
+  opacity: 0.85;
 }
