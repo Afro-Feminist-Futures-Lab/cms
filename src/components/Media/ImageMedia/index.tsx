@@ -72,7 +72,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
     const cacheTag = resource.updatedAt
 
-    const mediaUrl = process.env.NEXT_PUBLIC_SERVER_URL.includes('localhost') ? '/media/' + filename : url || ''
+    const mediaUrl = !process.env.NEXT_PUBLIC_SERVER_URL.includes('localhost') ? '/media/' + filename : url || ''
 
     src = getMediaUrl(mediaUrl, cacheTag)
   }
