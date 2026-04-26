@@ -73,9 +73,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     const cacheTag = resource.updatedAt
     const cloudinaryUrl = resource.cloudinary?.secure_url
 
-    const mediaUrl =
-      cloudinaryUrl ||
-      (!process.env.NEXT_PUBLIC_SERVER_URL.includes('localhost') ? '/media/' + filename : url || '')
+    const mediaUrl = cloudinaryUrl || '/media/' + filename
 
     src = getMediaUrl(mediaUrl, cacheTag)
   }

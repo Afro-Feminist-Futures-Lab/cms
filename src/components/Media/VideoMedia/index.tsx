@@ -24,9 +24,9 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
   }, [])
 
   if (resource && typeof resource === 'object') {
-    const { filename, url: resourceUrl, cloudinary } = resource
+    const { filename, cloudinary } = resource
     const cloudinaryUrl = cloudinary?.secure_url
-    const src = cloudinaryUrl || getMediaUrl(resourceUrl || `/media/${filename}`)
+    const src = cloudinaryUrl || `/media/${filename}`
 
     return (
       <video
