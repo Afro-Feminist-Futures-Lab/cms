@@ -9,6 +9,7 @@ import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { searchFields } from '@/search/fieldOverrides'
 import { beforeSyncWithSearch } from '@/search/beforeSync'
+import { cloudinaryStorage } from "payload-cloudinary";
 
 import { Page, Post } from '@/payload-types'
 import { LANDING_PAGE_SLUG } from '@/constants/landingPage'
@@ -94,4 +95,14 @@ export const plugins: Plugin[] = [
       },
     },
   }),
+    cloudinaryStorage({
+      config: {
+        cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "",
+        api_key: process.env.CLOUDINARY_API_KEY || "",
+        api_secret: process.env.CLOUDINARY_API_SECRET || "",
+      },
+      collections: {
+        "media": true
+      }
+    }),
 ]
