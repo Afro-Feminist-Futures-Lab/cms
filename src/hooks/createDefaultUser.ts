@@ -31,6 +31,6 @@ export async function createDefaultUser({ payload }: { payload: Payload }): Prom
       payload.logger.info(`✅ Default admin user created: ${adminEmail}`)
     }
   } catch (err) {
-    payload.logger.error('❌ Failed to create default admin user:', { err })
+    payload.logger.error(`❌ Failed to create default admin user: ${err instanceof Error ? err.message : String(err)}`)
   }
 }
