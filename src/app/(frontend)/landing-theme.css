@@ -457,7 +457,7 @@ main[data-maintenance='true'].affl-maintenance {
   position: relative;
   display: flex;
   flex-direction: column;
-  background: url('/maintenance-bg.webp') center bottom / cover no-repeat;
+  background: url('/media/maintenance-bg.png') center bottom / cover no-repeat;
   color: white;
   font-family: var(--font-roboto);
   overflow: hidden;
@@ -523,7 +523,7 @@ main[data-maintenance='true'] .affl-maintenance-logo {
 }
 
 main[data-maintenance='true'] .affl-maintenance-logo img {
-  max-width: 120px;
+  max-width: 240px;
   height: auto;
   display: inline-block;
 }

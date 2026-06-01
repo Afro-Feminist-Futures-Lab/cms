@@ -52,9 +52,6 @@ export default function MaintenancePage() {
 
       <div className="affl-maintenance-content">
         <div className="affl-maintenance-left">
-          <div className="affl-maintenance-logo">
-            <img src="/Logo AFFL.png" alt="AFFL Logo" />
-          </div>
           <h1>Welcome to AFFL</h1>
 
           <div className="affl-maintenance-text">
@@ -74,6 +71,19 @@ export default function MaintenancePage() {
               it is designed to support.
             </p>
             <p>You'll be notified once access becomes available or your request is approved.</p>
+          </div>
+
+          <div className="affl-maintenance-cta">
+            <p>Register your interest to be considered for access</p>
+            <a href="#register" className="affl-maintenance-register-btn">
+              Request to join AFFL
+            </a>
+          </div>
+        </div>
+
+        <div className="affl-maintenance-right"> 
+          <div className="affl-maintenance-logo">
+            <img src="/Logo AFFL.png" alt="AFFL Logo" />
           </div>
 
           <form action={handleSubscribe} className="affl-maintenance-form">
@@ -105,34 +115,6 @@ export default function MaintenancePage() {
               {isLoading ? 'Subscribing...' : 'Subscribe to updates'}
             </button>
           </form>
-        </div>
-
-        <div className="affl-maintenance-right">
-          <div className="affl-maintenance-circle">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="100" cy="100" r="100" fill="url(#circleGradient)" />
-              <defs>
-                <radialGradient id="circleGradient">
-                  <stop offset="0%" stopColor="#FCD34D" />
-                  <stop offset="100%" stopColor="#F97316" />
-                </radialGradient>
-              </defs>
-            </svg>
-            <div className="affl-maintenance-icon">
-              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <text x="32" y="40" textAnchor="middle" fontSize="48" fill="#333333">
-                  👩🏿
-                </text>
-              </svg>
-            </div>
-          </div>
-
-          <div className="affl-maintenance-cta">
-            <p>Register your interest to be considered for access</p>
-            <a href="#register" className="affl-maintenance-register-btn">
-              Request to join AFFL
-            </a>
-          </div>
         </div>
       </div>
     </main>
