@@ -111,6 +111,7 @@ export default function MaintenancePage() {
           
           <div className="affl-maintenance-cta">
             <p>Register your interest to be considered for access</p>
+            <p style={{ color: "#FFFF5C", fontSize: "14px" }}>Request to join AFFL</p>
             <a href="#register" className="affl-maintenance-register-btn">
               Request to join AFFL
             </a>

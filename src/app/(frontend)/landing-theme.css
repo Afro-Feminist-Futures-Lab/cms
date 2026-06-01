@@ -524,7 +524,7 @@ main[data-maintenance='true'] .affl-maintenance-logo {
 }
 
 main[data-maintenance='true'] .affl-maintenance-logo img {
-  max-width: 240px;
+  max-width: 280px;
   height: auto;
   display: inline-block;
 }
@@ -551,7 +551,8 @@ main[data-maintenance='true'] .affl-maintenance-intro {
 main[data-maintenance='true'] .affl-maintenance-form {
   display: grid;
   gap: 1rem;
-  margin-top: 2rem
+  margin-top: 2rem;
+  max-width: 320px;
 }
 
 main[data-maintenance='true'] .affl-maintenance-form label {
@@ -586,10 +587,11 @@ main[data-maintenance='true'] .affl-maintenance-form input:focus {
 
 main[data-maintenance='true'] .affl-maintenance-form button {
   min-height: 3.25rem;
+  width: 200px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 8px;
   background: #B66A50;
-  padding: 0 2rem;
+  padding: 2rem;
   font-weight: 700;
   font-size: 0.95rem;
   color: #FFFF5C;
@@ -657,6 +659,7 @@ main[data-maintenance='true'] .affl-maintenance-cta {
   text-align: center;
   max-width: 300px;
   background-color: #50635533;
+  padding: 23;
 }
 
 main[data-maintenance='true'] .affl-maintenance-cta p {
