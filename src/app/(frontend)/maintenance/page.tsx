@@ -52,7 +52,7 @@ export default function MaintenancePage() {
 
       <div className="affl-maintenance-content">
         <div className="affl-maintenance-left">
-          <h1>Welcome to AFFL</h1>
+          <h1 style={{ fontSize: "29px" }}>Welcome to AFFL</h1>
 
           <div className="affl-maintenance-text">
             <p className="affl-maintenance-intro">
@@ -71,19 +71,6 @@ export default function MaintenancePage() {
               it is designed to support.
             </p>
             <p>You'll be notified once access becomes available or your request is approved.</p>
-          </div>
-
-          <div className="affl-maintenance-cta">
-            <p>Register your interest to be considered for access</p>
-            <a href="#register" className="affl-maintenance-register-btn">
-              Request to join AFFL
-            </a>
-          </div>
-        </div>
-
-        <div className="affl-maintenance-right"> 
-          <div className="affl-maintenance-logo">
-            <img src="/Logo AFFL.png" alt="AFFL Logo" />
           </div>
 
           <form action={handleSubscribe} className="affl-maintenance-form">
@@ -115,6 +102,19 @@ export default function MaintenancePage() {
               {isLoading ? 'Subscribing...' : 'Subscribe to updates'}
             </button>
           </form>
+        </div>
+
+        <div className="affl-maintenance-right"> 
+          <div className="affl-maintenance-logo">
+            <img src="/Logo AFFL.png" alt="AFFL Logo" />
+          </div>
+          
+          <div className="affl-maintenance-cta">
+            <p>Register your interest to be considered for access</p>
+            <a href="#register" className="affl-maintenance-register-btn">
+              Request to join AFFL
+            </a>
+          </div>
         </div>
       </div>
     </main>

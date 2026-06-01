@@ -530,7 +530,7 @@ main[data-maintenance='true'] .affl-maintenance-logo img {
 
 main[data-maintenance='true'] .affl-maintenance-text {
   display: grid;
-  gap: 1.25rem;
+  gap: 0.25rem;
   margin-bottom: 2rem;
 }
 
@@ -653,6 +653,7 @@ main[data-maintenance='true'] .affl-maintenance-icon {
 main[data-maintenance='true'] .affl-maintenance-cta {
   text-align: center;
   max-width: 300px;
+  background-color: "#50635533";
 }
 
 main[data-maintenance='true'] .affl-maintenance-cta p {
