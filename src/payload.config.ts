@@ -6,6 +6,7 @@ import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
+import { JoinRequests } from './collections/JoinRequests'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
@@ -15,6 +16,8 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+
+import { createDefaultUser } from './hooks/createDefaultUser'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -75,7 +78,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Users, JoinRequests],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins,
@@ -101,5 +104,8 @@ export default buildConfig({
       },
     },
     tasks: [],
+  },
+  onInit: async (payload) => {
+    await createDefaultUser({ payload })
   },
 })

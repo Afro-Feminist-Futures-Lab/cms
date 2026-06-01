@@ -37,7 +37,10 @@ export default async function HomePage() {
         <LandingChrome />
         <RenderHero {...hero} />
       </div>
-      <RenderBlocks blocks={layout} />
+
+      <section className="affl-landing-blocks" aria-label="Page content">
+        <RenderBlocks blocks={layout} />
+      </section>
     </article>
   )
 }
