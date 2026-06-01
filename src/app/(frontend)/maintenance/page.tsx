@@ -9,13 +9,15 @@ export default function MaintenancePage() {
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
 
-  async function handleSubscribe(formData: FormData) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
     try {
       setIsLoading(true)
       setError(null)
 
-      const email = String(formData.get('email') || '')
-      const name = String(formData.get('name') || '')
+      const formData = new FormData(e.currentTarget)
+      const email = String(formData.get('email') || '').trim()
+      const name = String(formData.get('name') || '').trim()
 
       if (!email || !name) {
         setError('Please enter your name and email')
@@ -31,14 +33,17 @@ export default function MaintenancePage() {
         body: JSON.stringify({ email, name }),
       })
 
+      const data = await response.json()
+
       if (!response.ok) {
-        const data = await response.json()
         throw new Error(data.message || 'Failed to register')
       }
 
       setSuccess(true)
-      ;(document.querySelector('[name="email"]') as HTMLInputElement).value = ''
-      ;(document.querySelector('[name="name"]') as HTMLInputElement).value = ''
+      e.currentTarget.reset()
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => setSuccess(false), 5000)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
     } finally {
@@ -73,7 +78,7 @@ export default function MaintenancePage() {
             <p>You'll be notified once access becomes available or your request is approved.</p>
           </div>
 
-          <form action={handleSubscribe} className="affl-maintenance-form">
+          <form onSubmit={handleSubmit} className="affl-maintenance-form">
             <label htmlFor="maintenance-name">Name</label>
             <input
               autoComplete="name"

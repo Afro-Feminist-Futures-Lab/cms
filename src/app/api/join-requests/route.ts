@@ -10,7 +10,7 @@ export async function POST(request: Request) {
       return Response.json({ message: 'Name and email are required' }, { status: 400 })
     }
 
-    const payload = (await getPayload({ config })) as any
+    const payload = await getPayload({ config })
 
     // Check if email already exists
     const existing = await payload.find({
@@ -21,6 +21,7 @@ export async function POST(request: Request) {
         },
       },
       limit: 1,
+      overrideAccess: false,
     })
 
     if (existing.docs.length > 0) {
@@ -31,17 +32,21 @@ export async function POST(request: Request) {
     }
 
     // Create new join request
-    await payload.create({
+    const result = await payload.create({
       collection: 'join-requests',
       data: {
         email,
         name,
         status: 'pending',
       },
+      overrideAccess: false,
     })
 
     return Response.json(
-      { message: 'Thank you for registering! We will be in touch soon.' },
+      {
+        message: 'Thank you for registering! We will be in touch soon.',
+        id: result.id,
+      },
       { status: 201 }
     )
   } catch (error) {
