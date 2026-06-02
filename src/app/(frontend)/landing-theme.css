@@ -555,6 +555,7 @@ main[data-maintenance='true'] .affl-maintenance-form {
   width: 75%;;
   justify-self: center;
   align-items: center;
+  justify-content: center;
 }
 
 main[data-maintenance='true'] .affl-maintenance-form label {
