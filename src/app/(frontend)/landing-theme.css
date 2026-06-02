@@ -552,8 +552,8 @@ main[data-maintenance='true'] .affl-maintenance-form {
   display: grid;
   gap: 1rem;
   margin-top: 2rem;
-  max-width: 320px;
-  align-self: center;
+  width: 75%;;
+  justify-self: center;
   align-items: center;
 }
 

@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
     const payload = await getPayload({ config })
 
-    // Check if email already exists
+    // Check if email already exists - unauthenticated query
     const existing = await payload.find({
       collection: 'join-requests',
       where: {
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
         },
       },
       limit: 1,
-      overrideAccess: false,
+      overrideAccess: true,
     })
 
     if (existing.docs.length > 0) {
