@@ -524,6 +524,7 @@ main[data-maintenance='true'] .affl-maintenance-logo {
 }
 
 main[data-maintenance='true'] .affl-maintenance-logo img {
+  width: "75%";
   max-width: 280px;
   height: auto;
   display: inline-block;

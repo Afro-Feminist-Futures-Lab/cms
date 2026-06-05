@@ -55,7 +55,7 @@ export default function MaintenancePage() {
     <main className="affl-maintenance" data-maintenance="true">
       <div className="affl-maintenance-stars"></div>
 
-      <div className="affl-maintenance-content">
+      <div className="affl-maintenance-content py-6 md:py-0">
           <div className="affl-maintenance-logo md:hidden block">
             <img src="/Logo AFFL.png" alt="AFFL Logo" />
           </div>
