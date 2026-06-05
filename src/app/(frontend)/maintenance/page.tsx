@@ -53,9 +53,7 @@ export default function MaintenancePage() {
 
   return (
     <main className="affl-maintenance" data-maintenance="true">
-      <div className="affl-maintenance-stars"></div>
-
-      <div className="affl-maintenance-content py-6 md:py-0">
+      <div className="affl-maintenance-content py-16 md:py-0 px-6">
           <div className="affl-maintenance-logo md:hidden block">
             <img src="/Logo AFFL.png" alt="AFFL Logo" />
           </div>
@@ -81,7 +79,7 @@ export default function MaintenancePage() {
             <p>You'll be notified once access becomes available or your request is approved.</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="affl-maintenance-form">
+          <form onSubmit={handleSubmit} className="affl-maintenance-form w-full md:w-3/4">
             <label htmlFor="maintenance-name">Name</label>
             <input
               autoComplete="name"
