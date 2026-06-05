@@ -56,6 +56,9 @@ export default function MaintenancePage() {
       <div className="affl-maintenance-stars"></div>
 
       <div className="affl-maintenance-content">
+          <div className="affl-maintenance-logo md:hidden block">
+            <img src="/Logo AFFL.png" alt="AFFL Logo" />
+          </div>
         <div className="affl-maintenance-left">
           <h1 style={{ fontSize: "29px" }}>Welcome to AFFL</h1>
 
@@ -110,7 +113,7 @@ export default function MaintenancePage() {
         </div>
 
         <div className="affl-maintenance-right"> 
-          <div className="affl-maintenance-logo">
+          <div className="affl-maintenance-logo hidden md:block">
             <img src="/Logo AFFL.png" alt="AFFL Logo" />
           </div>
           
